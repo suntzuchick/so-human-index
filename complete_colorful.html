@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The So Human Index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="complete_colorful.css">
+</head>
+<body>
+    <!-- INTRO SCREEN -->
+    <div class="screen active" id="introScreen">
+        <div class="introContainer">
+            <div class="mascotLarge">
+                <div class="characterBody excited">
+                    <div class="beanBody">
+                        <div class="headband"></div>
+                        <div class="eyebrows">
+                            <div class="eyebrow left"></div>
+                            <div class="eyebrow right"></div>
+                        </div>
+                        <div class="characterEyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                        <div class="characterMouth happy"></div>
+                        <div class="arms">
+                            <div class="arm left"><div class="bicep left"></div></div>
+                            <div class="arm right"><div class="bicep right"></div></div>
+                        </div>
+                        <div class="sweatband left"></div>
+                        <div class="sweatband right"></div>
+                        <div class="actionLines">
+                            <div class="actionLine"></div>
+                            <div class="actionLine"></div>
+                            <div class="actionLine"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="mainTitle">THE SO HUMAN INDEX</h1>
+            <p class="mainTagline">Benchmarking the human condition</p>
+            
+            <div class="descriptionBox">
+                <p>We measure what traditional metrics miss:</p>
+                <p><strong>How you actually feel • What you actually experience • The gap between official stats and reality</strong></p>
+            </div>
+            
+            <h2 class="gameTitle">HOW'S YOUR LIFE?</h2>
+            <p class="gameSubtitle">Answer 10 questions. Get your archetype. Then test your reality radar.</p>
+            
+            <button class="bigBtn" id="startBtn">START →</button>
+        </div>
+    </div>
+
+    <!-- GAME 1: PERSONAL QUESTIONS -->
+    <div class="screen" id="personalGameScreen">
+        <div class="gameMascot">
+            <div class="characterBody">
+                <div class="beanBody">
+                    <div class="headband"></div>
+                    <div class="characterEyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="characterMouth"></div>
+                    <div class="arms">
+                        <div class="arm left"><div class="bicep left"></div></div>
+                        <div class="arm right"><div class="bicep right"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gameHeader">
+            <div class="headerStat">
+                <span class="statLabel">QUESTION</span>
+                <span class="statValue" id="personalQuestion">1/10</span>
+            </div>
+        </div>
+        
+        <div class="questionContainer">
+            <h2 class="questionText" id="questionText"></h2>
+            <div class="optionsGrid" id="personalOptions">
+                <!-- Options rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT BOX SCREEN -->
+    <div class="screen" id="giftScreen">
+        <div class="giftContainer">
+            <div class="mascotLarge">
+                <div class="characterBody excited">
+                    <div class="beanBody">
+                        <div class="headband"></div>
+                        <div class="characterEyes">
+                            <div class="eye"></div>
+                            <div class="eye"></div>
+                        </div>
+                        <div class="characterMouth happy"></div>
+                        <div class="arms">
+                            <div class="arm left"><div class="bicep left"></div></div>
+                            <div class="arm right"><div class="bicep right"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="giftTitle">WE MADE SOMETHING FOR YOU...</h2>
+            
+            <div class="giftBox" id="giftBox">
+                <div class="giftWrap">
+                    <div class="giftBow">🎀</div>
+                    <div class="giftPattern"></div>
+                </div>
+            </div>
+            
+            <button class="bigBtn" id="unwrapBtn">UNWRAP →</button>
+        </div>
+    </div>
+
+    <!-- ARCHETYPE SCREEN -->
+    <div class="screen" id="archetypeScreen">
+        <h1 class="archetypeTitle">YOUR ARCHETYPE</h1>
+        
+        <div class="comparisonContainer">
+            <div class="comparisonSide yours">
+                <h3>YOUR ANSWERS</h3>
+                <div class="answersList" id="yourAnswers"></div>
+            </div>
+            
+            <div class="vsSymbol">VS</div>
+            
+            <div class="comparisonSide average">
+                <h3>THE AVERAGE PERSON</h3>
+                <div class="answersList" id="averageAnswers"></div>
+            </div>
+        </div>
+        
+        <div class="archetypeMessage" id="archetypeMessage"></div>
+        
+        <button class="bigBtn" id="continueToTruthBtn">READY FOR A CHALLENGE? →</button>
+    </div>
+
+    <!-- GAME 2: TRUTH LADDER (MOVING OPTIONS) -->
+    <div class="screen" id="truthGameScreen">
+        <div class="gameMascot">
+            <div class="characterBody">
+                <div class="beanBody">
+                    <div class="headband"></div>
+                    <div class="characterEyes">
+                        <div class="eye"></div>
+                        <div class="eye"></div>
+                    </div>
+                    <div class="characterMouth"></div>
+                    <div class="arms">
+                        <div class="arm left"><div class="bicep left"></div></div>
+                        <div class="arm right"><div class="bicep right"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gameHeader">
+            <div class="headerStat">
+                <span class="statLabel">ROW</span>
+                <span class="statValue" id="currentRow">1/10</span>
+            </div>
+            <div class="headerStat">
+                <span class="statLabel">TRIES</span>
+                <span class="statValue" id="triesCount">1</span>
+            </div>
+        </div>
+        
+        <div class="rowsContainer" id="rowsContainer">
+            <!-- Moving rows rendered here -->
+        </div>
+        
+        <div class="hint">💡 The real numbers are usually worse than you think</div>
+    </div>
+
+    <!-- RECIPE CARD SCREEN -->
+    <div class="screen" id="recipeScreen">
+        <div class="recipeCard">
+            <div class="recipeHeader">
+                <div class="recipeIcon">🎯</div>
+                <h1 class="recipeTitle">YOUR TRUTH LADDER RUN</h1>
+            </div>
+            
+            <div class="recipeStats">
+                <div class="recipeStat">
+                    <div class="statIcon">⏱️</div>
+                    <div class="statLabel">Time</div>
+                    <div class="statValue" id="recipeTime">0:00</div>
+                </div>
+                <div class="recipeStat">
+                    <div class="statIcon">🎯</div>
+                    <div class="statLabel">Tries</div>
+                    <div class="statValue" id="recipeTries">1</div>
+                </div>
+                <div class="recipeStat">
+                    <div class="statIcon">📊</div>
+                    <div class="statLabel">Accuracy</div>
+                    <div class="statValue">100%</div>
+                </div>
+                <div class="recipeStat">
+                    <div class="statIcon">🔥</div>
+                    <div class="statLabel">Streak</div>
+                    <div class="statValue">10</div>
+                </div>
+            </div>
+            
+            <div class="recipeDivider"></div>
+            
+            <div class="recipeQuestions">
+                <h3>Questions You Saw:</h3>
+                <div id="recipeQuestionsList"></div>
+            </div>
+            
+            <div class="recipeFooter">
+                <p class="recipeNote">"The real numbers are almost always worse than the plausible options. We're trained to think things aren't THAT bad. But they are."</p>
+            </div>
+        </div>
+        
+        <div class="recipeActions">
+            <button class="bigBtn" id="continueToStoryBtn">SEE HOW WE KNOW THIS →</button>
+            <button class="secondaryBtn" id="shareBtn">SHARE RESULTS</button>
+            <button class="secondaryBtn" id="playAgainBtn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <!-- STORYTELLING SCREEN -->
+    <div class="screen" id="storyScreen">
+        <div class="storyContainer">
+            <div class="storyHeader">
+                <div class="mascotLarge">
+                    <div class="characterBody excited">
+                        <div class="beanBody">
+                            <div class="headband"></div>
+                            <div class="characterEyes">
+                                <div class="eye"></div>
+                                <div class="eye"></div>
+                            </div>
+                            <div class="characterMouth happy"></div>
+                            <div class="arms">
+                                <div class="arm left"><div class="bicep left"></div></div>
+                                <div class="arm right"><div class="bicep right"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="storyTitle">HOW DO WE KNOW ALL THIS?</h2>
+                <p class="storySubtitle">Let me tell you a story...</p>
+            </div>
+            
+            <div class="storyChapters">
+                <div class="storyChapter">
+                    <div class="chapterNumber">1</div>
+                    <div class="chapterContent">
+                        <h4>IT STARTED WITH A PROBLEM</h4>
+                        <p>The official numbers say everything's fine. GDP up, unemployment down, stock market hitting records.</p>
+                        <p>But everyone we talked to? They were struggling. Something didn't add up.</p>
+                    </div>
+                </div>
+                
+                <div class="storyChapter">
+                    <div class="chapterNumber">2</div>
+                    <div class="chapterContent">
+                        <h4>SO WE STARTED LOOKING EVERYWHERE</h4>
+                        <p>Government databases, sure. But also Reddit threads at 2am. Twitter rants. TikTok confessionals. News article comments.</p>
+                        <p>The internet doesn't lie the same way official stats do.</p>
+                    </div>
+                </div>
+                
+                <div class="storyChapter">
+                    <div class="chapterNumber">3</div>
+                    <div class="chapterContent">
+                        <h4>THEN WE ASKED PEOPLE DIRECTLY</h4>
+                        <p>Surveys. Thousands of them. Every week. "How do you actually feel?" "What's really going on?"</p>
+                        <p>But people lie on surveys. Not on purpose—they just want to believe things are better than they are.</p>
+                    </div>
+                </div>
+                
+                <div class="storyChapter highlight">
+                    <div class="chapterNumber">4</div>
+                    <div class="chapterContent">
+                        <h4>SO WE BUILT GAMES</h4>
+                        <p><strong>Two kinds, actually.</strong></p>
+                        <p><strong>First,</strong> we ask about YOUR life directly. How you feel. What you experience. That was the first game you played.</p>
+                        <p><strong>Then,</strong> we test if you can spot reality. Real numbers vs propaganda. That was the second game.</p>
+                        <p><strong>Both games tell us something.</strong> How you see yourself. How you see the world.</p>
+                        <p>The gap between those two? That's where the truth lives.</p>
+                    </div>
+                </div>
+                
+                <div class="storyChapter">
+                    <div class="chapterNumber">5</div>
+                    <div class="chapterContent">
+                        <h4>WE QUALITY-CHECK EVERYTHING</h4>
+                        <p>Survey responses that look fake? Filtered out. Behavior patterns that don't make sense? Removed.</p>
+                        <p>We measure the signal, not the noise.</p>
+                    </div>
+                </div>
+                
+                <div class="storyChapter">
+                    <div class="chapterNumber">6</div>
+                    <div class="chapterContent">
+                        <h4>AND WE DO IT EVERY SINGLE WEEK</h4>
+                        <p>Six layers of data. Thousands of signals. All synthesized into one number:</p>
+                        <p class="indexHighlight"><strong>The So Human Index.</strong></p>
+                        <p>A real measure of the human condition. Not GDP. Not unemployment. But how people actually feel.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="storyFooter">
+                <p class="footerText">Those two games you just played? You're now part of Layer 5.</p>
+                <p class="footerText">Your answers feed the Index. Thank you for being real with us.</p>
+                <button class="bigBtn" id="finalPlayAgainBtn">PLAY AGAIN</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP CHARACTER -->
+    <div class="popupCharacter" id="popupCharacter">
+        <div class="speechBubble" id="speechBubble"></div>
+        <div class="characterBody">
+            <div class="beanBody">
+                <div class="headband"></div>
+                <div class="characterEyes">
+                    <div class="eye"></div>
+                    <div class="eye"></div>
+                </div>
+                <div class="characterMouth"></div>
+                <div class="arms">
+                    <div class="arm left"><div class="bicep left"></div></div>
+                    <div class="arm right"><div class="bicep right"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <script src="complete_colorful.js"></script>
+</body>
+</html>
